@@ -20,6 +20,8 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         return tableView
     } ()
     
+    // viewModels, numberFormatter, viewDidLoad
+    
     private var viewModels = [CryptoTableViewCellModel]()
     
     static let numberFormatter: NumberFormatter = {
@@ -38,6 +40,8 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         view.addSubview(tableView)
         tableView.dataSource = self
         tableView.delegate = self
+        
+        // API Caller
         
         APICaller.shared.getAllCryptoData { [weak self] result in
             switch result {
